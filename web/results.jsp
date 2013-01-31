@@ -4,14 +4,28 @@
     Author     : JoeGollakner
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html"%>
+<%@page pageEncoding="UTF-8"%>
+<%@page import="java.util.*" %>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Calculations Results</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>Here are your results!</h1>
+        
+        
+        <p>
+            <%
+            
+            
+            List list = (List)request.getAttribute("area");
+            out.print("Area: " + list);
+            
+            
+            %>
+        </p>
     </body>
 </html>

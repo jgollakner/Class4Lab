@@ -64,8 +64,12 @@ public class CalculationSelectionController extends HttpServlet {
         String l = request.getParameter("length");
         String w = request.getParameter("width");
         
+        double dl = Double.parseDouble(l);
+        double dw = Double.parseDouble(w);
         
+        double area = dl * dw;
         
+        request.setAttribute("area", area);
         
         
         RequestDispatcher view =
