@@ -26,9 +26,11 @@
 
                 List list = (List) request.getAttribute("area");
                 Iterator it = list.iterator();
-                while (it.hasNext()) {
+                while(it.hasNext())
+                {
                     out.print("Area: " + it.next());
                 }
+
 
             %>
         </p>

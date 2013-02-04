@@ -10,8 +10,17 @@ and open the template in the editor.
     </head>
     <body>
         <div>TODO write content</div>
-        
-        
+
+
         <p><button onclick="window.location.href='index.jsp'">Go Back</button></p>
+
+        <form id="form2" name="form2" method="POST" action="SelectRadius.do">
+            Radius: <input type="text" name="radius"><br>
+
+            <center>
+                <input id="radiusSubmit" name="radiusSubmit" type="submit" value="Get Radius">
+            </center>
+
+        </form>
     </body>
 </html>

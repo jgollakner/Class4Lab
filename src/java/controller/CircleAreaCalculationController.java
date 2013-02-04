@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -16,8 +17,9 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author JoeGollakner
  */
-public class CalculationSelectionController extends HttpServlet {
-    private static final String FINAL_RESULTS = "results.jsp";
+@WebServlet(name = "CircleAreaCalculationController", urlPatterns = {"/CircleAreaCalculationController"})
+public class CircleAreaCalculationController extends HttpServlet {
+private static final String FINAL_RESULTS = "resulting.jsp";
     /**
      * Processes requests for both HTTP
      * <code>GET</code> and
@@ -33,15 +35,12 @@ public class CalculationSelectionController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-
         
-        String l = request.getParameter("length");
-        String w = request.getParameter("width");
+        String r = request.getParameter("radius");
         
-        double dl = Double.parseDouble(l);
-        double dw = Double.parseDouble(w);
-        
-        double area = dl * dw;
+        double dr = Double.parseDouble(r);
+        double pi = 3.14159265359;
+        double area = pi * (dr * dr);
         
         request.setAttribute("area", area);
         
@@ -49,9 +48,6 @@ public class CalculationSelectionController extends HttpServlet {
         RequestDispatcher view =
                 request.getRequestDispatcher(FINAL_RESULTS);
         view.forward(request, response);
-        
-        
-        
         } finally {            
             out.close();
         }
