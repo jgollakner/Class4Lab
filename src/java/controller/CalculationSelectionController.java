@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author JoeGollakner
  */
 public class CalculationSelectionController extends HttpServlet {
-    private static final String FINAL_RESULTS = "results.jsp";
+    private static final String FINAL_RESULTS = "/results.jsp";
     /**
      * Processes requests for both HTTP
      * <code>GET</code> and
