@@ -14,7 +14,45 @@ and open the template in the editor.
         <p><button onclick="window.location.href='index.jsp'">Go Back</button></p>
 
 
-        <form id="form1" name="form1" method="POST" action="SelectArea.do">
+        <script type="text/javascript">
+            function validateForm()
+            {
+                var l = document.forms["form1"]["length"].value;
+                var w = document.forms["form1"]["width"].value;
+                var notANum = "Please enter a valid number";
+                var blankNum = "Field Cannot be blank"
+                var outOfRange = "Enter a number between 1-500";
+                
+                if (l==""){
+                    alert(blankNum);
+                    return false;
+                }
+                if (isNaN(l)){
+                    alert(notANum);
+                    return false;
+                }
+                if (l<1||l>500){
+                    alert(outOfRange);
+                    return false;
+                }
+                if (w==""){
+                    alert(blankNum);
+                    return false;
+                }
+                if (isNaN(w)){
+                    alert(notANum);
+                    return false;
+                }
+                if (w<1||w>500){
+                    alert(outOfRange);
+                    return false;
+                }
+                
+            }
+            
+        </script>
+        
+        <form id="form1" name="form1" method="POST" action="SelectArea.do" onsubmit="return validateForm()">
             Length: <input type="text" name="length"><br>
             Width: <input type="text" name="width">
         

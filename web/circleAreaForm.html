@@ -13,8 +13,34 @@ and open the template in the editor.
 
 
         <p><button onclick="window.location.href='index.jsp'">Go Back</button></p>
+        
+        
+        <script type="text/javascript">
+            function validateForm()
+            {
+                var r = document.forms["form1"]["radius"].value;
+                var notANum = "Please enter a valid number";
+                var blankNum = "Field Cannot be blank"
+                var outOfRange = "Enter a number between 1-500";
+                
+                if (r==""){
+                    alert(blankNum);
+                    return false;
+                }
+                if (isNaN(r)){
+                    alert(notANum);
+                    return false;
+                }
+                if (r<1||r>500){
+                    alert(outOfRange);
+                    return false;
+                }             
+            }
+            
+        </script>
+        
 
-        <form id="form1" name="form1" method="POST" action="SelectRadius.do">
+        <form id="form1" name="form1" method="POST" action="SelectRadius.do" onsubmit="return validateForm()">
             Radius: <input type="text" name="radius"><br>
 
             <center>
