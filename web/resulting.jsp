@@ -4,6 +4,7 @@
     Author     : JoeGollakner
 --%>
 
+<%@page import="java.text.DecimalFormat"%>
 <%@page contentType="text/html"%>
 <%@page pageEncoding="UTF-8"%>
 <%@page import="java.util.*" %>
@@ -15,22 +16,15 @@
         <title>Calculations Results</title>
     </head>
     <body>
-        <h1>Here are your results!</h1>
+        <h1>Here are the results of your Circle Area Calculation!</h1>
 
 
         <p>
             <%
 
-                //Object area = request.getParameter("area");
-
-
-                List list = (List) request.getAttribute("area");
-                Iterator it = list.iterator();
-                while(it.hasNext())
-                {
-                    out.print("Area: " + it.next());
-                }
-
+                Object output = request.getAttribute("area");
+                DecimalFormat df = new DecimalFormat("#.###");
+                out.print("Area of your circle: " + (df.format(output)));
 
             %>
         </p>

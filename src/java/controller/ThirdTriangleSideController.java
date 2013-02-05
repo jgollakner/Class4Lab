@@ -17,9 +17,11 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author JoeGollakner
  */
-@WebServlet(name = "CircleAreaCalculationController", urlPatterns = {"/SelectRadius.do"})
-public class CircleAreaCalculationController extends HttpServlet {
-private static final String FINAL_RESULTS = "/resulting.jsp";
+@WebServlet(name = "ThirdTriangleSideController", urlPatterns = {"/TriangleArea.do"})
+public class ThirdTriangleSideController extends HttpServlet {
+    
+        private static final String FINAL_RESULTS = "/triangleResults.jsp";
+
     /**
      * Processes requests for both HTTP
      * <code>GET</code> and
@@ -35,20 +37,25 @@ private static final String FINAL_RESULTS = "/resulting.jsp";
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-        
-        String r = request.getParameter("radius");
-        
-        double dr = Double.parseDouble(r);
-        double pi = 3.14159265359;
-        double area = pi * (dr * dr);
-        
-        request.setAttribute("area", area);
-        
-        
-        RequestDispatcher view =
+
+            String a = request.getParameter("sideA");
+            String b = request.getParameter("sideB");
+
+            double sa = Double.parseDouble(a);
+            double sb = Double.parseDouble(b);
+
+            double thirdSide = Math.sqrt(Math.pow(sa, 2) + Math.pow(sb, 2));
+
+            request.setAttribute("area", thirdSide);
+
+            
+            RequestDispatcher view =
                 request.getRequestDispatcher(FINAL_RESULTS);
         view.forward(request, response);
-        } finally {            
+        
+            
+
+        } finally {
             out.close();
         }
     }

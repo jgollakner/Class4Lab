@@ -16,7 +16,7 @@
             <p>Please select the calculation you wish to perform!</p>   
             <button onclick="window.location.href='areaForm.html'">Area of a Rectangle</button>
             <button onclick="window.location.href='circleAreaForm.html'">Area of a Circle</button>
-            <button onclick="window.location.href='missingSide.html'">Find the Missing Side of a Triangle</button>
+            <button onclick="window.location.href='thirdSideForm.html'">Find the Missing Side of a Triangle</button>
             
         
                 

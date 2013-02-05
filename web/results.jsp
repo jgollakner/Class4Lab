@@ -15,7 +15,7 @@
         <title>Calculations Results</title>
     </head>
     <body>
-        <h1>Here are your results!</h1>
+        <h1>Here are the results of your Area Calculation!</h1>
 
 
         <p>
@@ -24,12 +24,8 @@
                 //Object area = request.getParameter("area");
 
 
-                List list = (List) request.getAttribute("area");
-                Iterator it = list.iterator();
-                while (it.hasNext()) {
-                    out.print("Area: " + it.next());
-                }
-
+                Object output = request.getAttribute("area".toString());
+                out.print("Area: " + output);
             %>
         </p>
     </body>
